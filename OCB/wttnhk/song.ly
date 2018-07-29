@@ -1,5 +1,7 @@
 \version "2.18.2"
 
+\include "articulate.ly"
+
 #(set-global-staff-size 16)
 
 \header {
@@ -17,14 +19,28 @@
 %%
 
 vocals_verse = \relative c {
-  \repeat unfold 4 {
-    \repeat unfold 4 {
-      r1
-    }
+  \repeat unfold 8 {
+    r1
   }
 }
 
-vocals_chorus = \relative c {
+vocals_chorus = \relative c'' {
+  %% \repeat unfold 4 { r1 | }
+  e8 e4 e8~ e4 e16 e e e |
+  g4 fis4  d2 |
+
+  e8 e4 e8~ e4 e16 e e e |
+  g4 fis4  a2 |
+
+  e8 e4 e8~ e4 e16 e e e |
+  g4 fis4  d2 |
+
+  e8. e16~ e4  e'8. e16~ e4 |
+  d8. d16~ d4  a2 |
+}
+
+vocals_interlude = \relative c {
+  \repeat unfold 4 { r1 | }
 }
 
 %%
@@ -33,8 +49,8 @@ vocals_chorus = \relative c {
 
 bass_verse = \relative c, {
   \repeat unfold 4 {
-    e16 e e e e e e e  \relative c { e e e e  e e e e } |
-    fis fis fis fis fis fis fis fis  g g g g g g g g |
+    e16 e e e e e e e \relative c { e e e e  e e e e } |
+    d d d d d d d d  g g g g g g g g |
   }
 }
 bass_chorus = \relative c, {
@@ -47,10 +63,43 @@ bass_chorus = \relative c, {
   d8. d16~ d4  a2 |
 }
 bass_interlude = \relative c, {
-  \repeat unfold 8 {
-    e8 e e16 e e e e8 e e16 e e e |
-    c8 c c16 c c c d8 d d16 d d d |
+  \repeat unfold 4 {
+    e8 e \staccato b'16 a g fis e8 e \staccato b'16 a g fis |
+    c8 c \staccato g'16 fis d c d8 d \staccato d16 d d d |
   }
+}
+
+%%
+%% KEYBOARDS
+%%
+
+keyboard_verse = \relative c {
+  \repeat unfold 4 {
+    <e b>2  <e' b'> |
+    <d fis> <g d>  |
+  }
+}
+
+keyboard_chorus = \relative c' {
+  \repeat unfold 3 {
+    e'16 e, e' e, e' e, e' e, e' e, e' e, e' e, e' e, |
+    d'16  d, d' d, d' d, d' d, a' a, a' a, a' a, a' a, |
+  }
+
+  e''16 f e e,
+  e'16 f e e,
+  e'16 f e e,
+  e'16 f e e, |
+
+  %% d'16  d, d' d, d' d, d' d, a' a, a' a, a' a, a' a, |
+
+  d'16 e d d,
+  d'16 e d d,
+  e' a  e e,
+  e' a  e e, |
+}
+
+keyboard_interlude = \relative c' {
 }
 
 %%
@@ -75,7 +124,7 @@ guitar_chorus = {
 }
 
 guitar_interlude = \relative {
-  \repeat unfold 8 {
+  \repeat unfold 4 {
     e16  g' fis g e, g' fis g e, g' fis g e, g fis g |
     c  g' fis g c g fis g d g fis g d g fis g |
   }
@@ -103,7 +152,8 @@ drums_chorus = \drummode {
 }
 
 drums_interlude = \drummode {
-  \repeat unfold 16 { bd4 <bd sn crashcymbal> bd8 bd <bd sn> bd | }
+  \repeat unfold 8 {
+    bd4 <bd sn> bd8 bd <bd sn>16 bd bd bd | }
 }
 
 %%
@@ -123,14 +173,17 @@ drums_interlude = \drummode {
 
     \new Staff \with {
       instrumentName = #"Vocals"
-      midiInstrument = #"electric guitar (jazz)"
+      midiInstrument = #"vibraphone"
     }
     {
       \key e \minor
       r1 \bar "||"
 
+      \repeat volta 2 {
       \vocals_verse
       \vocals_chorus
+      \vocals_interlude
+      }
     }
 
     \new Staff \with {
@@ -168,6 +221,19 @@ drums_interlude = \drummode {
       \guitar_interlude
     }
 
+    \new Staff \with {
+      instrumentName = #"keys saw."
+      midiInstrument = #"vibraphone"
+    }
+    {
+      \key e \minor
+      r1 \bar "||"
+
+      \keyboard_verse
+      \keyboard_chorus
+      \keyboard_interlude
+    }
+
     \new DrumStaff \with {
       instrumentName = #"Drums"
     }
@@ -180,9 +246,7 @@ drums_interlude = \drummode {
     }
   >>
 
-  \layout {
-    %% \set Score.markFormatter = #format-mark-box-letters
-  }
+  \layout { }
 
   \midi {
     \tempo 4 = 100
