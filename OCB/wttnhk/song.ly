@@ -6,21 +6,26 @@
 
 \header {
   title = "Welcome to the NHK"
+  subtitle = "Open Casket Bukkake: Thick and Chunky"
   composer = "Open Casket Bukkake"
 }
 
-%% A terrible conspiracy to hurt me
+%% Chorus
 %% A terrible conspiracy to push me out
 %% A terrible conspiracy to lock me in
+%% A terrible conspiracy to hurt me
 %% Welcome, to the, N. H. K.
 
 %%
 %% VOCALS
 %%
 
-vocals_verse = \relative c {
-  \repeat unfold 8 {
-    r1
+vocals_verse = \relative c'' {
+  \repeat unfold 2 {
+    e8 e e d e4. g16 g |
+    g4 fis d2 |
+    e8 e e d e4. g16 g |
+    g4 fis a2 |
   }
 }
 
@@ -40,7 +45,7 @@ vocals_chorus = \relative c'' {
 }
 
 vocals_interlude = \relative c {
-  \repeat unfold 4 { r1 | }
+  \repeat unfold 8 { r1 | }
 }
 
 %%
@@ -100,6 +105,8 @@ keyboard_chorus = \relative c' {
 }
 
 keyboard_interlude = \relative c' {
+  <e b>1 |
+  <c g>2 <d a> |
 }
 
 %%
@@ -135,25 +142,30 @@ guitar_interlude = \relative {
 %%
 
 drums_verse = \drummode {
-  \repeat unfold 4 {
+  \repeat unfold 3 {
     \repeat unfold 3 { <hh bd>16 hh hhho hh } <hh bd>16 hhho hhho hhho |
     \repeat unfold 3 { <hh bd>16 hh hhho hh } <hh bd >16 hhho <hhho> hhho |
   }
+
+  \repeat unfold 3 { <hh bd>16 hh hhho hh } <hh bd>16 hhho hhho hhho |
+  \repeat unfold 2 { <hh bd>16 hh hhho hh }
+    <hh bd sn>16 <sn hhho> <sn hhho> <sn hhho>
+    <hh bd sn>16 <sn hhho> <sn hhho> <sn hhho> |
 }
 
 drums_chorus = \drummode {
   \repeat unfold 3 {
-    <crashcymbal bd>16 bd bd bd~ bd bd bd bd  <crashcymbal bd>16 bd bd bd~ bd bd bd bd |
-    <crashcymbal bd>16 bd bd bd~ bd bd bd bd  <crashcymbal bd>16 bd bd bd~ bd bd bd bd |
+    <cymc bd sn>16 bd bd <sn bd>~ <sn bd> bd bd bd  <sn cymc bd>16 bd bd <sn bd>~ <sn bd> bd bd bd |
+    <cymc bd sn>16 bd bd <sn bd>~ <sn bd> bd bd bd  <sn cymc bd>16 bd bd <sn bd>~ <sn bd> <sn bd> <sn bd> <sn bd> |
   }
 
-  <bd sn crashcymbal>8. <bd sn crashcymbal>16~ <bd sn crashcymbal>4 <bd sn crashcymbal>8. <bd sn crashcymbal>16~ <bd sn crashcymbal>4 |
-  <bd sn crashcymbal>8. <bd sn crashcymbal>16~ <bd sn crashcymbal>4 <bd sn crashcymbal>2 |
+  <bd sn cymc>8. <bd sn cymc>16~ <bd sn cymc>4 <bd sn cymc>8. <bd sn cymc>16~ <bd sn cymc>4 |
+  <bd sn cymc>8. <bd sn cymc>16~ <bd sn cymc>4 <bd sn cymc>2 |
 }
 
 drums_interlude = \drummode {
-  \repeat unfold 8 {
-    bd4 <bd sn> bd8 bd <bd sn>16 bd bd bd | }
+  \repeat unfold 7 { bd4 <bd sn> bd8 bd <bd sn>16 bd bd bd | }
+  bd4 <bd sn> bd8 bd <bd sn>16 <sn bd> <sn bd> <sn bd> |
 }
 
 %%
@@ -173,17 +185,15 @@ drums_interlude = \drummode {
 
     \new Staff \with {
       instrumentName = #"Vocals"
-      midiInstrument = #"vibraphone"
+      midiInstrument = #"choir aahs"
     }
     {
       \key e \minor
       r1 \bar "||"
 
-      \repeat volta 2 {
-      \vocals_verse
-      \vocals_chorus
-      \vocals_interlude
-      }
+        \vocals_verse
+        \vocals_chorus
+        \vocals_interlude
     }
 
     \new Staff \with {
@@ -197,12 +207,15 @@ drums_interlude = \drummode {
 
       r1 \bar "||"
 
+      \tempo 4 = 100
       \mark "Verse I"
       \bass_verse \bar "||"
+
       \mark "Chorus"
       \bass_chorus \bar "||"
+
       \mark "Interlude"
-      \bass_interlude
+      \bass_interlude \bar "||"
     }
 
     \new Staff \with {
@@ -216,9 +229,9 @@ drums_interlude = \drummode {
 
       r1 \bar "||"
 
-      \guitar_verse
-      \guitar_chorus
-      \guitar_interlude
+        \guitar_verse
+        \guitar_chorus
+        \guitar_interlude
     }
 
     \new Staff \with {
@@ -229,20 +242,19 @@ drums_interlude = \drummode {
       \key e \minor
       r1 \bar "||"
 
-      \keyboard_verse
-      \keyboard_chorus
-      \keyboard_interlude
+        \keyboard_verse
+        \keyboard_chorus
+        \keyboard_interlude
     }
 
     \new DrumStaff \with {
       instrumentName = #"Drums"
     }
     {
-
       r1 \bar "||"
-      \drums_verse
-      \drums_chorus
-      \drums_interlude
+        \drums_verse
+        \drums_chorus
+        \drums_interlude
     }
   >>
 
