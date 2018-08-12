@@ -10,6 +10,7 @@
   composer = "Open Casket Bukkake"
 }
 
+%%
 %% Chorus
 %% A terrible conspiracy to push me out
 %% A terrible conspiracy to lock me in
@@ -53,9 +54,12 @@ vocals_interlude = \relative c {
 %%
 
 bass_verse = \relative c, {
-  \repeat unfold 4 {
+  \repeat unfold 2 {
     e16 e e e e e e e \relative c { e e e e  e e e e } |
-    d d d d d d d d  g g g g g g g g |
+    fis' fis fis fis fis fis fis fis  g g g g fis g fis d |
+
+    e,16 e e e e e e e \relative c { e e e e  e e e e } |
+    fis' fis fis fis fis fis fis fis  g g g g d g fis d |
   }
 }
 bass_chorus = \relative c, {
@@ -68,9 +72,11 @@ bass_chorus = \relative c, {
   d8. d16~ d4  a2 |
 }
 bass_interlude = \relative c, {
-  \repeat unfold 4 {
-    e8 e \staccato b'16 a g fis e8 e \staccato b'16 a g fis |
-    c8 c \staccato g'16 fis d c d8 d \staccato d16 d d d |
+  \repeat unfold 2 {
+    e8 e \staccato c'16 b g fis e8 e \staccato c'16 b g fis |
+    e8 e \staccato c'16 b g fis e8 e \staccato c'16 b g fis |
+    c8 c \staccato g'16 fis g fis c8 c \staccato g' fis |
+    d8 d g16 fis d g~ g fis d~ d g16 fis d r |
   }
 }
 
@@ -105,8 +111,7 @@ keyboard_chorus = \relative c' {
 }
 
 keyboard_interlude = \relative c' {
-  <e b>1 |
-  <c g>2 <d a> |
+  \repeat unfold 8 { r1 }
 }
 
 %%
@@ -115,7 +120,7 @@ keyboard_interlude = \relative c' {
 
 guitar_verse = \relative c {
   \repeat unfold 4 {
-    \repeat unfold 8 { <e b>16  } \repeat unfold 8 { <e' b'>16 } |
+    \repeat unfold 8 { <e b'>16  } \repeat unfold 8 { <e' b'>16 } |
     \repeat unfold 8 { <fis d> } \repeat unfold 8 { <g d> }     |
   }
 }
@@ -131,9 +136,20 @@ guitar_chorus = {
 }
 
 guitar_interlude = \relative {
-  \repeat unfold 4 {
-    e16  g' fis g e, g' fis g e, g' fis g e, g fis g |
-    c  g' fis g c g fis g d g fis g d g fis g |
+  \repeat unfold 2 {
+    e4. g'16 fis b4 g |
+    e,4. g'16 fis b4 g |
+    c,4. fis16 g16 c2 |
+    d,,4. fis'16 g b2 |
+  }
+}
+
+guitar_interlude_ii = \relative {
+  \repeat unfold 2 {
+    e4. g'16 fis b4 g |
+    e,4. g'16 fis b4 g |
+    c,4~ c4. fis16 g16 c4 |
+    d,,4~ d4. fis'16 g b4 |
   }
 }
 
@@ -156,7 +172,7 @@ drums_verse = \drummode {
 drums_chorus = \drummode {
   \repeat unfold 3 {
     <cymc bd sn>16 bd bd <sn bd>~ <sn bd> bd bd bd  <sn cymc bd>16 bd bd <sn bd>~ <sn bd> bd bd bd |
-    <cymc bd sn>16 bd bd <sn bd>~ <sn bd> bd bd bd  <sn cymc bd>16 bd bd <sn bd>~ <sn bd> <sn bd> <sn bd> <sn bd> |
+    <cymc bd sn>16 bd bd <sn bd>~ <sn bd> bd bd bd  <sn cymc bd>16 bd bd <sn bd>~ <sn bd > <sn bd> <sn bd > <sn bd> |
   }
 
   <bd sn cymc>8. <bd sn cymc>16~ <bd sn cymc>4 <bd sn cymc>8. <bd sn cymc>16~ <bd sn cymc>4 |
@@ -219,8 +235,9 @@ drums_interlude = \drummode {
     }
 
     \new Staff \with {
-      instrumentName = #"ovrdrv. gtr."
-      midiInstrument = #"overdriven guitar"
+      instrumentName = #"dist. gtr. I"
+      midiInstrument = #"distorted guitar"
+      midiPanPosition = 1
     }
     {
       \key e \minor
@@ -232,6 +249,23 @@ drums_interlude = \drummode {
         \guitar_verse
         \guitar_chorus
         \guitar_interlude
+    }
+
+    \new Staff \with {
+      instrumentName = #"dist. gtr. I"
+      midiInstrument = #"distorted guitar"
+      midiPanPosition = -1
+    }
+    {
+      \key e \minor
+      \clef treble
+      \time 4/4
+
+      r1 \bar "||"
+
+        \guitar_verse
+        \guitar_chorus
+        \guitar_interlude_ii
     }
 
     \new Staff \with {
