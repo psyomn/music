@@ -29,6 +29,14 @@ bass_intermission = \repeat volta 4 {
   g,4 g'8 g, fis'4 d |
 }
 
+bass_preverse = \repeat volta 4 {
+  e,8 e r e a d a'4 |
+  e,8 e r e a d g4 |
+  e,8 e r e a d a'4 |
+  g8 fis g fis cis d e a, |
+
+}
+
 vocals_verse = \repeat volta 2 {
   r4 e4 e r8 e |
   e8 e d8 e r2 |
@@ -37,9 +45,7 @@ vocals_verse = \repeat volta 2 {
 }
 
 vocals_chorus = \repeat volta 4 {
-  e4 e e e |
-  e e e e |
-  e e e e |
+  \repeat unfold 3 { e4\staccato e\staccato e\staccato e\staccato | }
   e2 e2 |
 }
 
@@ -49,6 +55,8 @@ vocals_intermission = \repeat volta 4 {
   r2 d4 e |
   g4 g fis fis |
 }
+
+vocals_preverse = \repeat volta 4 { \repeat unfold 4 { r1 | } }
 
 music = {
   <<
@@ -68,7 +76,8 @@ music = {
       \vocals_verse
       \vocals_chorus
       \vocals_intermission
-      %% \vocals_verse
+      \vocals_preverse
+      \vocals_verse
     }
 
   } \addlyrics {
@@ -92,7 +101,7 @@ music = {
       %% intermission
       fuck you
       I'm true
-      and I'll
+      and I
       won't -- be a -- lie
   }
 
@@ -120,10 +129,14 @@ music = {
       \mark "Intermission I"
       \bass_intermission
 
+      \mark "Preverse"
+      \bass_preverse
+
       \mark "Verse II"
       \relative c, {
         \bass_verse_common
       }
+
     }
   }
 
@@ -143,6 +156,8 @@ music = {
 
       \bass_chorus
       \bass_intermission
+      \bass_preverse
+
       \relative c, {
         \bass_verse_common
       }
@@ -186,6 +201,14 @@ music = {
         <bd sn cymch>8 bd bd bd <bd sn cymch> bd <bd sn cymch>4 |
         <bd sn cymch>8 bd bd bd <bd sn cymch> bd <bd sn cymch>4 |
         <bd sn cymch>4 <bd sn cymch>8 <bd sn cymch> <bd sn cymch>4 <bd sn cymch>4 |
+      }
+
+      %% preverse
+      \repeat  volta 4 {
+        <bd sn>8 bd r bd <bd sn> bd bd bd |
+        <bd sn>8 bd r bd <bd sn> bd bd bd |
+        <bd sn>8 bd r bd <bd sn> bd bd bd |
+        <bd sn>8 bd r bd <bd sn> bd bd bd |
       }
 
       %% verse
