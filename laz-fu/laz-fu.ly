@@ -15,6 +15,13 @@ bass_verse_common = \repeat volta 2 {
   e  e e e  g g a a |
 }
 
+bass_verse_melody = \repeat volta 2 {
+  r4 g''8 fis d2 |
+  cis8 d e a, r2 |
+  r4 g'8 fis d2 |
+  cis8 d e a, r2 |
+}
+
 bass_chorus = \repeat volta 4 {
   e8 e  e'16 d e8  e,8 e  e'16 d e8 |
   e,8 e  e'16 d e8  g fis d d |
@@ -106,7 +113,7 @@ music = {
   }
 
   \new Staff \with {
-    instrumentName = #"dist.elec.bass"
+    instrumentName = #"dist bass 2"
     midiInstrument = #"overdriven guitar"
   }{
     \clef bass
@@ -121,7 +128,7 @@ music = {
       \bass_verse_common
 
       \mark "Verse I"
-      \bass_verse_common
+      \bass_verse_melody
 
       \mark "Chorus I"
       \bass_chorus
@@ -136,12 +143,13 @@ music = {
       \relative c, {
         \bass_verse_common
       }
+      \bass_verse_common
 
     }
   }
 
   \new Staff \with {
-    instrumentName = #"dist.elec.bass"
+    instrumentName = #"dist bass 1"
     midiInstrument = #"overdriven guitar"
   }{
     \clef bass
@@ -161,6 +169,7 @@ music = {
       \relative c, {
         \bass_verse_common
       }
+      \bass_verse_common
     }
   }
 
