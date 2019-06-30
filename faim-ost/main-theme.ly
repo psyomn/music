@@ -40,10 +40,12 @@ music = {
 
     \mark "intermission"
     \relative c''' {
-      c4. bes |
-      a bes |
-      c4. bes |
-      a  bes |
+      \repeat volta 2 {
+        c4. bes |
+        a bes |
+        c4. bes |
+        a  bes |
+      }
     }
 
     \mark "build up"
@@ -88,50 +90,52 @@ music = {
 
     \relative c'''' {
       \repeat volta 2 {
-        c8 c c c4. |
-        c8 c c c4. |
-        c8 c c c4. |
-        ees8 d ees d ees d |
+        c8  \staccato c\staccato c  \staccato  c4. \staccato |
+        c8  \staccato c\staccato c  \staccato  c4. \staccato |
+        c8  \staccato c\staccato c  \staccato  c4. \staccato |
+        ees8\staccato d\staccato ees\staccato  d   \staccato ees \staccato d \staccato |
 
-        c8 c c c4. |
-        c8 c c c4. |
-        c8 c c c4. |
-        ees8 d ees d ees d |
+        c8\staccato    c\staccato  c  \staccato  c4. \staccato |
+        c8\staccato    c\staccato  c  \staccato  c4. \staccato |
+        c8\staccato    c\staccato  c  \staccato  c4. \staccato |
+        ees8\staccato  d\staccato  ees\staccato  d \staccato ees \staccato d \staccato |
       }
     }
 
-    r4. r4. |
-    r4. r4. |
-    r4. r4. |
-    r4. r4. |
+    \repeat volta 2 {
+      r4. r4. |
+      r4. r4. |
+      r4. r4. |
+      r4. r4. |
+    }
 
     \transpose c ees {
       \relative c'''' {
         \repeat volta 2 {
-          c8 c c c4. |
-          c8 c c c4. |
-          c8 c c c4. |
-          ees8 d ees d ees d |
+          c8\staccato c\staccato c\staccato c4.\staccato |
+          c8\staccato c\staccato c\staccato c4.\staccato |
+          c8\staccato c\staccato c\staccato c4.\staccato |
+          ees8\staccato d\staccato ees\staccato d\staccato ees\staccato d\staccato |
 
-          c8 c c c4. |
-          c8 c c c4. |
-          c8 c c c4. |
-          ees8 d ees d ees d |
+          c8\staccato c\staccato c\staccato c4.\staccato |
+          c8\staccato c\staccato c\staccato c4.\staccato |
+          c8\staccato c\staccato c\staccato c4.\staccato |
+          ees8\staccato d\staccato ees\staccato d\staccato ees\staccato d\staccato |
         }
       }
     }
 
     \relative c'''' {
       \repeat volta 2 {
-        c8 c c c4. |
-        c8 c c c4. |
-        c8 c c c4. |
-        ees8 d ees d ees d |
+        c8  \staccato c\staccato c  \staccato  c4. \staccato |
+        c8  \staccato c\staccato c  \staccato  c4. \staccato |
+        c8  \staccato c\staccato c  \staccato  c4. \staccato |
+        ees8\staccato d\staccato ees\staccato  d   \staccato ees \staccato d \staccato |
 
-        c8 c c c4. |
-        c8 c c c4. |
-        c8 c c c4. |
-        ees8 d ees d ees d |
+        c8\staccato    c\staccato  c  \staccato  c4. \staccato |
+        c8\staccato    c\staccato  c  \staccato  c4. \staccato |
+        c8\staccato    c\staccato  c  \staccato  c4. \staccato |
+        ees8\staccato  d\staccato  ees\staccato  d \staccato ees \staccato d \staccato |
       }
     }
   }
@@ -168,10 +172,12 @@ music = {
         f f f f' f, f |
       }
 
-      c'4 c,8 c'4 c,8 |
-      c'4 c,8 a'8 bes f |
-      c'4 c,8 c'4 c,8 |
-      c'4 c,8 d'8 ees bes  |
+      \repeat volta 2 {
+        c'4 c,8 c'4 c,8 |
+        c'4 c,8 a'8 bes f |
+        c'4 c,8 c'4 c,8 |
+        c'4 c,8 d'8 ees bes  |
+      }
 
       \transpose c ees {
         \repeat volta 2 {
@@ -233,10 +239,12 @@ music = {
       bd4 bd8 sn4 bd8 |
       }
 
-      bd4 bd8 sn4 bd8 |
-      bd4 bd8 sn4 bd8 |
-      bd4 bd8 sn4 bd8 |
-      bd4 bd8 sn4 bd8 |
+      \repeat volta 2 {
+        bd4 bd8 sn4 bd8 |
+        bd4 bd8 sn4 bd8 |
+        bd4 bd8 sn4 bd8 |
+        bd4 bd8 sn4 bd8 |
+      }
 
       \repeat volta 2 {
       bd4 bd8 sn4 bd8 |
