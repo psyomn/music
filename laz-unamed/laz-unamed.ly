@@ -31,13 +31,13 @@ bass_verse_common = \repeat volta 4 {
 
 bass_verse_melody = \repeat volta 2 {
   e,8 e e'16 d e e,8 e16 e~ e e16 g d' g, |
-  e8 e e'16 d e e,8 e16 e~ e e16 g d' g, |
+  e8 e e'16 d e e,8 e16 e~ e e16 g d' g, | \mark \markup {"x2"}
 }
 
 bass_chorus = \repeat volta 2 {
   \chordmode {
     \powerChords
-    e,,4.:1.5.8
+    e,,4.:1.5.8 \mf
     e,,4:1.5.8
     e,,8:1.5.8
     e,,4:1.5.8 |
@@ -83,13 +83,13 @@ bass_chorus = \repeat volta 2 {
     a,,8:1.5.8
     a,,8:1.5.8
     a,,8:1.5.8
-    a,,8:1.5.8 |
+    a,,8:1.5.8 | \mark \markup {"x2"}
   }
 }
 
 bass_interlude = \repeat volta 4 {
   e8 e e'16 d e e,8 e16 e~ e e' bes' e bes' |
-  e,,,8 e e'16 d e e,8 e16 e~ e e f b e |
+  e,,,8 e e'16 d e e,8 e16 e~ e e f b e | \mark \markup {"x2"}
 }
 
 bass_preverse = \repeat volta 4 {
@@ -128,17 +128,19 @@ music = {
     \time 4/4
     \tempo 4 = 100
 
-    %% \relative c'' {
-    %%   \mark \default
-    %%   r1 |
-
-    %%   \vocals_verse
-    %%   \vocals_verse
-    %%   \vocals_chorus
-    %%   \vocals_intermission
-    %%   \vocals_preverse
-    %%   \vocals_verse
-    %% }
+    \relative c''' {
+      \mark \default
+      \repeat unfold 4 { r1 | }
+      \repeat volta 4 { r1 | }
+      \repeat volta 4 { r1 | r1 | r1 | r1 | } %% main riff
+      \repeat volta 2 { r1 | r1 | } %% interlude
+      \repeat volta 4 {
+        e4.\fffff e4. e4 |
+        g4. g4. g4 |
+        g8 fis e fis~ fis2 |
+        g8 fis e d~ d4  cis  |
+      }
+    }
 
   } \addlyrics {
    %%   %% verse
@@ -157,6 +159,7 @@ music = {
   \new Staff \with {
     instrumentName = #"dist. bass 1"
     midiInstrument = #"distorted guitar"
+    midiPanPosition = -1.0
   }{
     \clef "bass_8"
     \time 4/4
@@ -221,6 +224,7 @@ music = {
   \new Staff \with {
     instrumentName = #"dist. bass 2"
     midiInstrument = #"distorted guitar"
+    midiPanPosition = 1.0
   }{
     \clef "bass_8"
     \time 4/4
